@@ -1,0 +1,314 @@
+body {
+  font-family: Arial, sans-serif;
+  background: #f2f4f7;
+  margin: 0;
+  padding: 20px;
+}
+
+.app {
+  max-width: 420px;
+  margin: 0 auto;
+  background: white;
+  min-height: 100vh;
+  padding: 24px;
+  border-radius: 20px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+}
+
+h1 {
+  font-size: 32px;
+  margin-bottom: 8px;
+}
+
+p {
+  font-size: 16px;
+  color: #666;
+}
+
+button {
+  width: 100%;
+  padding: 16px;
+  margin-top: 12px;
+  font-size: 17px;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+}.card {
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 16px;
+  margin-top: 20px;
+}
+
+.card h2 {
+  font-size: 32px;
+  margin: 5px 0;
+}
+
+.summary {
+  display: flex;
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.income,
+.expense {
+  flex: 1;
+  background: white;
+  padding: 16px;
+  border-radius: 14px;
+}
+
+.income h3,
+.expense h3 {
+  margin: 5px 0;
+  font-size: 22px;
+}
+.history {
+  margin-top: 30px;
+}
+
+.history h2 {
+  font-size: 22px;
+}
+
+#transactionList {
+  background: white;
+  padding: 16px;
+  border-radius: 14px;
+  margin-top: 10px;
+}.transaction {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.transaction:last-child {
+  border-bottom: none;
+}
+
+.delete-btn {
+  width: auto;
+  padding: 8px 12px;
+  margin: 0;
+  font-size: 14px;
+}
+.action-buttons {
+  display: flex;
+  gap: 8px;
+}
+
+.edit-btn,
+.delete-btn {
+  width: auto;
+  padding: 8px 12px;
+  margin: 0;
+  font-size: 14px;
+}.form-card {
+  background: white;
+  padding: 18px;
+  border-radius: 16px;
+  margin-top: 20px;
+}
+
+.form-card h2 {
+  margin-top: 0;
+}
+
+.form-card input,
+.form-card select {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 14px;
+  margin-top: 10px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  font-size: 16px;
+}.bottom-nav {
+  display: flex;
+  gap: 8px;
+  margin-top: 30px;
+  position: sticky;
+  bottom: 10px;
+  background: white;
+  padding: 10px;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.bottom-nav button {
+  flex: 1;
+  margin: 0;
+  padding: 12px 6px;
+  font-size: 14px;
+}.habit-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: white;
+  padding: 14px;
+  margin-top: 10px;
+  border-radius: 12px;
+}
+
+.habit-item input {
+  width: 20px;
+  height: 20px;
+}
+
+.habit-item span {
+  font-size: 16px;
+}
+.habit-done {
+  background: #dff7e3;
+  border: 1px solid #9fd8a8;
+}
+
+.habit-missed {
+  background: #fde2e2;
+  border: 1px solid #e3a0a0;
+}
+.habit-item {
+  padding: 14px;
+  margin-bottom: 10px;
+  border-radius: 12px;
+  transition: 0.3s;
+}
+
+/* วันนี้ทำสำเร็จ */
+.habit-item.habit-done {
+  background: #d9f7df;
+  border-left: 6px solid #22a447;
+}
+
+/* เมื่อวานพลาด */
+.habit-item.habit-missed {
+  background: #ffdede;
+  border-left: 6px solid #d93025;
+}
+/* ===== HABIT STATUS ===== */
+
+/* ทำสำเร็จวันนี้ */
+.habit-item.habit-done {
+  background: #dff5df;
+  border-left: 6px solid #34a853;
+}
+
+/* พลาด / ไม่ได้ทำ */
+.habit-item.habit-missed {
+  background: #ffe1e1;
+  border-left: 6px solid #e53935;
+}
+
+/* ทำให้เปลี่ยนสีแบบนุ่มนวล */
+.habit-item {
+  transition: background 0.3s ease, border 0.3s ease;
+}
+.work-status {
+  padding: 18px;
+  margin-bottom: 16px;
+  border-radius: 16px;
+  background: #f1f1f1;
+  transition: 0.3s;
+}
+
+.work-status.work-done {
+  background: #dff5df;
+  border-left: 6px solid #34a853;
+}
+
+.work-status.work-missed {
+  background: #ffe1e1;
+  border-left: 6px solid #e53935;
+}
+
+.work-status h3 {
+  margin: 6px 0;
+}
+.work-history {
+  margin-bottom: 20px;
+}
+
+.work-history-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px;
+  margin-top: 8px;
+  border-radius: 12px;
+}
+
+.work-history-item.worked {
+  background: #dff5df;
+  border-left: 5px solid #34a853;
+}
+
+.work-history-item.not-worked {
+  background: #ffe1e1;
+  border-left: 5px solid #e53935;
+}
+
+.work-history-item span {
+  font-size: 14px;
+}
+.work-history-item.pending {
+  background: #fff4cc;
+  border-left: 5px solid #f4b400;
+}
+.goal-progress {
+  width: 100%;
+  height: 12px;
+  background: #eeeeee;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-top: 10px;
+}
+
+.goal-progress-bar {
+  height: 100%;
+  background: #34a853;
+  border-radius: 10px;
+}
+
+.goal-item button {
+  margin-top: 10px;
+}
+.goal-actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.goal-actions button {
+  flex: 1;
+  margin: 0;
+}
+.summary-card {
+  background: white;
+  padding: 20px;
+  border-radius: 16px;
+  margin-bottom: 14px;
+}
+
+.summary-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.summary-box {
+  background: white;
+  padding: 14px;
+  border-radius: 14px;
+}
+
+.summary-box p {
+  margin: 0 0 6px;
+  font-size: 14px;
+}
+
+.summary-box h3 {
+  margin: 0;
+}

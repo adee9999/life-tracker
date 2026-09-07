@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Life Tracker</title>
+<link rel="stylesheet" href="style.css">
+<link rel="manifest" href="manifest.json">
+</head>
+
+<body>
+    <div class="app">
+
+        <div id="finance" class="page">
+
+        <h1>Life Tracker</h1>
+        <p>แอปติดตามชีวิตของฉัน</p>
+       
+  <div id="workStatus" class="work-status">
+    <p>สถานะการทำงานวันนี้</p>
+    <h3 id="workStatusText">กำลังตรวจสอบ...</h3>
+    <p id="todayIncome">รายรับวันนี้ ฿0</p>
+  </div>
+
+  <div class="work-history">
+    <h3>ประวัติการทำงาน</h3>
+    <div id="workHistoryList">
+      <p>ยังไม่มีข้อมูล</p>
+  </div>
+</div>
+
+  <div class="card">
+            <p>เงินคงเหลือ</p>
+            <h2 id="balance">฿0</h2>
+        </div>
+
+        <div class="summary">
+            <div class="income">
+            <p>รายรับ</p>
+            <h3 id="income">฿0</h3>
+        </div>
+
+        <div class="expense">
+            <p>รายจ่าย</p>
+            <h3 id="expense">฿0</h3>
+        </div>
+    </div>
+    
+    <div class="form-card">
+        <h2>เพิ่มรายการ</h2>
+
+     <input
+        type="number"
+        id="amountInput"
+        placeholder="จำนวนเงิน"
+  >
+
+    <input
+        type="text"
+        id="categoryInput"
+        placeholder="หมวดหมู่ เช่น Grab, อาหาร, น้ำมัน"
+  >
+
+    <select id="typeInput">
+        <option value="income">รายรับ</option>
+        <option value="expense">รายจ่าย</option>
+    </select>
+
+    <button onclick="addTransaction()">
+        บันทึกรายการ
+    </button>
+</div>
+    
+        
+        <div class="history">
+            <h2>รายการล่าสุด</h2>
+
+            <div id="transactionList">
+                <p>ยังไม่มีรายการ</p>
+    </div>
+</div>
+</div>
+
+<div id="habits" class="page" style="display: none;">
+  <h2>ติดตามนิสัย</h2>
+
+  <div class="form-card">
+   <input
+  type="text"
+  id="habitInput"
+  placeholder="เช่น ดื่มน้ำ 2 ลิตร"
+>
+
+<select id="habitType">
+  <option value="build">นิสัยที่อยากสร้าง</option>
+  <option value="quit">นิสัยที่อยากเลิก</option>
+</select>
+
+<button onclick="addHabit()">
+  เพิ่มนิสัย
+</button>
+  </div>
+
+  <div class="history">
+    <h2>นิสัยของฉัน</h2>
+
+    <div id="habitList">
+      <p>ยังไม่มีนิสัย</p>
+    </div>
+  </div>
+</div>
+<div id="goals" class="page" style="display: none;">
+  <h2>เป้าหมายการเงิน</h2>
+
+  <div class="form-card">
+    <input
+      type="text"
+      id="goalNameInput"
+      placeholder="ชื่อเป้าหมาย เช่น ซื้อบ้าน"
+    >
+
+    <input
+      type="number"
+      id="goalAmountInput"
+      placeholder="จำนวนเงินเป้าหมาย"
+    >
+
+    <button onclick="addGoal()">
+      บันทึกเป้าหมาย
+    </button>
+  </div>
+
+  <div class="history">
+    <h2>เป้าหมายของฉัน</h2>
+
+    <div id="goalList">
+      <p>ยังไม่มีเป้าหมาย</p>
+    </div>
+  </div>
+</div>
+
+<div id="summary" class="page" style="display: none;">
+  <h2>สรุปภาพรวม</h2>
+
+  <div class="summary-card">
+    <p>เงินคงเหลือ</p>
+    <h2 id="summaryBalance">฿0</h2>
+  </div>
+
+  <div class="summary-grid">
+    <div class="summary-box">
+      <p>รายรับทั้งหมด</p>
+      <h3 id="summaryIncome">฿0</h3>
+    </div>
+
+    <div class="summary-box">
+      <p>รายจ่ายทั้งหมด</p>
+      <h3 id="summaryExpense">฿0</h3>
+    </div>
+
+    <div class="summary-box">
+      <p>รายรับวันนี้</p>
+      <h3 id="summaryTodayIncome">฿0</h3>
+    </div>
+
+    <div class="summary-box">
+      <p>นิสัยสำเร็จวันนี้</p>
+      <h3 id="summaryHabits">0</h3>
+    </div>
+
+    <div class="summary-box">
+      <p>เป้าหมายทั้งหมด</p>
+      <h3 id="summaryGoals">0</h3>
+    </div>
+
+    <div class="summary-box">
+      <p>สถานะการทำงาน</p>
+      <h3 id="summaryWorkStatus">-</h3>
+    </div>
+  </div>
+</div>
+
+<nav class="bottom-nav">
+    <button onclick="showPage('finance')">การเงิน</button>
+    <button onclick="showPage('habits')">นิสัย</button>
+    <button onclick="showPage('goals')">เป้าหมาย</button>
+    <button onclick="showPage('summary')">สรุป</button>
+</nav>
+    <script src="script.js"></script>
+
+    <script>
+  if ("serviceWorker" in navigator) {
+    navigator.serviceWorker.register("./service-worker.js")
+      .then(function() {
+        console.log("Service Worker registered");
+      })
+      .catch(function(error) {
+        console.log("Service Worker error:", error);
+      });
+  }
+</script>
+
+    </div>
+    </body>
+    </html>
